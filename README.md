@@ -17,13 +17,17 @@ yarn add -D serverless-config-generator
 ## How to use
 
 ```js
-const generate = require('serverless-config-generator')
+const { generateSync, generate } = require('serverless-config-generator')
 const path = require('path')
 // default
-generate()
+generateSync()
+//or
+async main(){
+  await generate()
+}
 // process.cwd() serverless.js => serverless.yml
 
-generate({
+generateSync({
   input:path.resolve(__dirname,'./lib/xxx.js'),
   output:{
     dir:path.resolve(__dirname,'./layer'),
