@@ -4,7 +4,8 @@
   "description": "a util helps us generate serverless.yml fluently",
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "publish": "yarn publish --registry https://registry.npmjs.org/"
   },
   "files": [
     "lib"

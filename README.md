@@ -38,6 +38,6 @@ generate({
 | params | type | default |
 |---|---|---|
 |input|`string`| `path.resolve(process.cwd(),'serverless.js')` |
-|output|`string|Object`|`path.resolve(process.cwd(),'serverless.yml')`|
+|output|`string/Object`|`path.resolve(process.cwd(),'serverless.yml')`|
 |output.dir|`string`|`undefined`|
 |output.filename|`string`|`undefined`|
