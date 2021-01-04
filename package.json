@@ -7,6 +7,7 @@
     "test": "jest",
     "publish:npm": "yarn publish --registry https://registry.npmjs.org/"
   },
+  "preferGlobal": true,
   "bin": {
     "sls-gen": "./bin/sls-gen.js"
   },
