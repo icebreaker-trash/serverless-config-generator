@@ -1,3 +1,6 @@
 node_modules
 package-lock.json
 yarn.lock
+
+//https://github.com/tj/commander.js#debugging-stand-alone-executable-subcommands
+.vscode

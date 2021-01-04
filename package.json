@@ -7,8 +7,14 @@
     "test": "jest",
     "publish:npm": "yarn publish --registry https://registry.npmjs.org/"
   },
+  "bin": {
+    "sls-gen": "./bin/sls-gen.js"
+  },
   "files": [
-    "lib"
+    "lib",
+    "bin",
+    "README.md",
+    "LICENSE"
   ],
   "repository": {
     "type": "git",
@@ -18,7 +24,8 @@
     "serverless",
     "yaml",
     "yml",
-    "generator"
+    "generator",
+    "cli"
   ],
   "author": "sonofmagic <1324318532@qq.com>",
   "license": "ISC",
@@ -30,6 +37,7 @@
   },
   "homepage": "https://github.com/sonofmagic/serverless-config-generator#readme",
   "dependencies": {
+    "commander": "^6.2.1",
     "js-yaml": "^3.14.1"
   },
   "devDependencies": {
