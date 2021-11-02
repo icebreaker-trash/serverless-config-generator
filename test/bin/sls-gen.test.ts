@@ -1,18 +1,14 @@
-import childProcess from 'child_process'
 import fs from 'fs'
 import path from 'path'
+import execa from 'execa'
 
-const EXECUTABLE_PATH = path.resolve(
-  path.join(__dirname, '../../bin/sls-gen')
-)
+const EXECUTABLE_PATH = path.resolve(path.join(__dirname, '../../bin/sls-gen'))
 
 describe('bin/sls-gen', () => {
   process.chdir(path.resolve(__dirname, '../fixtures'))
 
-  const forkedProcesses = new Set()
-
   function runSlsGen (args?, options?) {
-    const newProcess = childProcess.fork(
+    return execa(
       EXECUTABLE_PATH,
       args,
       Object.assign(
@@ -22,17 +18,15 @@ describe('bin/sls-gen', () => {
         options
       )
     )
-    forkedProcesses.add(newProcess)
-    return newProcess
   }
 
-  test('default serverless.js to serverless.yml', () => {
-    runSlsGen()
+  test('default serverless.js to serverless.yml', async () => {
+    await runSlsGen()
     expect(fs.existsSync('./serverless.yml')).toBe(true)
   })
 
-  test('change opts', () => {
-    runSlsGen(['-i', 'serverless.v2.js', '-o', 'serverless.v2.yml'])
+  test('change opts', async () => {
+    await runSlsGen(['-i', 'serverless.v2.js', '-o', 'serverless.v2.yml'])
     expect(fs.existsSync('./serverless.v2.yml')).toBe(true)
   })
 })
