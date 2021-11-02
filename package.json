@@ -1,8 +1,9 @@
 {
   "name": "serverless-config-generator",
-  "version": "1.0.4",
+  "version": "1.1.0-rc.1",
   "description": "a util helps us generate serverless.yml fluently",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest",
@@ -13,7 +14,7 @@
     "sls-gen": "./bin/sls-gen.js"
   },
   "files": [
-    "lib",
+    "dist",
     "bin",
     "README.md",
     "LICENSE"
