@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "target": "ES2015",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "strict": false,
+    "allowJs": true,
+    "noUnusedLocals": true,
+    "resolveJsonModule": true,
+    "types": ["node", "jest"],
+    "paths": {},
+    "declaration": true,
+    "outDir": "./dist"
+  },
+  "include": ["src"],
+  "exclude": []
+}

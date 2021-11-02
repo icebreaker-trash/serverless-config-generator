@@ -1,14 +1,19 @@
 module.exports = {
   env: {
-    commonjs: true,
     es2021: true,
-    node: true,
-    'jest/globals': true
+    node: true
   },
-  extends: ['standard', 'plugin:jest/recommended'],
-  plugins: ['jest'],
+  extends: [
+    'standard'
+  ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 12
+    ecmaVersion: 12,
+    sourceType: 'module'
   },
-  rules: {}
+  plugins: [
+    '@typescript-eslint'
+  ],
+  rules: {
+  }
 }
