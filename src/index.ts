@@ -5,7 +5,7 @@ import type { IGeneratorOption, IOutputOption } from './type'
 import { getDefaults, targetFilename } from './defaults'
 export { default as yaml } from 'js-yaml'
 
-export function getOptions (cfg: IGeneratorOption) {
+export function getOptions (cfg?: IGeneratorOption) {
   const cwdPath = process.cwd()
   const defaults = getDefaults(cwdPath)
 
@@ -30,7 +30,7 @@ export function getOptions (cfg: IGeneratorOption) {
   }
 }
 
-export function generateSync (cfg: IGeneratorOption) {
+export function generateSync (cfg?: IGeneratorOption) {
   try {
     const { input, output } = getOptions(cfg)
     const jsConfig = yaml.dump(require(input))
@@ -43,7 +43,7 @@ export function generateSync (cfg: IGeneratorOption) {
   }
 }
 
-export async function generate (cfg: IGeneratorOption) {
+export async function generate (cfg?: IGeneratorOption) {
   try {
     const { input, output } = getOptions(cfg)
     const jsConfig = yaml.dump(require(input))

@@ -12,8 +12,15 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
-    '@typescript-eslint'
+    '@typescript-eslint',
+    'jest'
   ],
   rules: {
+  },
+  globals: {
+    describe: true,
+    test: true,
+    expect: true,
+    beforeEach: true
   }
 }

@@ -1,13 +1,16 @@
-const { generateSync, generate } = require('../dist')
-const fs = require('fs')
-const path = require('path')
-const yaml = require('js-yaml')
-process.chdir(path.resolve(__dirname, './fixtures'))
+import { generate, generateSync } from '../src/index'
+import fs from 'fs'
+import path from 'path'
+import yaml from 'js-yaml'
 
+beforeEach(() => {
+  process.chdir(path.resolve(__dirname, './fixtures'))
+})
 describe('sync function', () => {
   test('js to default name yml', () => {
     generateSync()
-    expect(fs.existsSync('serverless.yml')).toBe(true)
+    const flag = fs.existsSync('serverless.yml')
+    expect(flag).toBe(true)
   })
 
   test('output filename', () => {
@@ -28,7 +31,11 @@ describe('sync function', () => {
       }
     })
     const jscode = require(path.resolve(__dirname, './fixtures/serverless.js'))
-    const doc = yaml.load(fs.readFileSync(`./${targetFilename}`))
+    const doc = yaml.load(
+      fs.readFileSync(`./${targetFilename}`, {
+        encoding: 'utf-8'
+      })
+    )
     expect(jscode).toEqual(doc)
   })
 
@@ -57,7 +64,9 @@ describe('sync function', () => {
     })
     const jscode = require(jsCodePath)
     const doc = yaml.load(
-      fs.readFileSync(path.resolve(targetDir, targetFilename))
+      fs.readFileSync(path.resolve(targetDir, targetFilename), {
+        encoding: 'utf-8'
+      })
     )
     expect(fs.existsSync(path.resolve(targetDir, targetFilename))).toBe(true)
     expect(jscode).toEqual(doc)
@@ -76,7 +85,9 @@ describe('sync function', () => {
     })
     const jscode = require(jsCodePath)
     const doc = yaml.load(
-      fs.readFileSync(path.resolve(targetDir, targetFilename))
+      fs.readFileSync(path.resolve(targetDir, targetFilename), {
+        encoding: 'utf-8'
+      })
     )
     expect(fs.existsSync(path.resolve(targetDir, targetFilename))).toBe(true)
     expect(jscode).toEqual(doc)

@@ -1,17 +1,19 @@
 {
   "name": "serverless-config-generator",
-  "version": "1.1.0-rc.1",
+  "version": "1.1.1",
   "description": "a util helps us generate serverless.yml fluently",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "test": "jest",
-    "publish:npm": "yarn publish --registry https://registry.npmjs.org/"
+    "build": "tsc -p ./",
+    "test": "yarn rm:yml && jest",
+    "publish:npm": "yarn publish --registry https://registry.npmjs.org/",
+    "clear": "node ./scripts/rm-dist.js",
+    "rm:yml": "node ./scripts/rm-yml.js"
   },
   "preferGlobal": true,
   "bin": {
-    "sls-gen": "./bin/sls-gen.js"
+    "sls-gen": "./bin/sls-gen"
   },
   "files": [
     "dist",
@@ -49,12 +51,14 @@
     "@types/node": "^16.11.6",
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
+    "del": "^6.0.0",
     "eslint": "8.1.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "2.25.2",
     "eslint-plugin-jest": "^25.2.2",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "5.1.1",
+    "execa": "^5.1.1",
     "jest": "^27.3.1",
     "ts-jest": "^27.0.7",
     "typescript": "^4.4.4"
