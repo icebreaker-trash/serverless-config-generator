@@ -5,13 +5,13 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p ./",
     "test": "jest",
     "publish:npm": "yarn publish --registry https://registry.npmjs.org/"
   },
   "preferGlobal": true,
   "bin": {
-    "sls-gen": "./bin/sls-gen.js"
+    "sls-gen": "./bin/sls-gen"
   },
   "files": [
     "dist",
