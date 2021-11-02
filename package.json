@@ -1,6 +1,6 @@
 {
   "name": "serverless-config-generator",
-  "version": "1.1.0-rc.1",
+  "version": "1.1.1",
   "description": "a util helps us generate serverless.yml fluently",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
