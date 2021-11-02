@@ -8,7 +8,7 @@ const path = require('path')
 program.version(require('../package.json').version)
 const {
   generateSync
-} = require('../lib')
+} = require('../dist')
 program.option('-i, --input [path]', 'input .js path').option('-o, --output [path]', 'output .yml path')
 
 program.parse(process.argv)
