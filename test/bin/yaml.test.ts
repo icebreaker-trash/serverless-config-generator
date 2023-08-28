@@ -1,4 +1,4 @@
-import { yaml } from '../../src/index'
+import { yaml } from '@/index'
 describe('yaml module', () => {
   test('yaml dump', () => {
     const res = yaml.load(`

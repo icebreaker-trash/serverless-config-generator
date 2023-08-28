@@ -1,7 +1,7 @@
+import path from 'node:path'
 import { Command } from 'commander'
-import path from 'path'
-import { generateSync } from './index'
 import type { IGeneratorOption } from './type'
+import { generateSync } from './core'
 const { version } = require('../package.json')
 
 const program = new Command()
@@ -15,15 +15,9 @@ program
 program.parse(process.argv)
 
 const cwdPath = process.cwd()
-/**
- * @param {String} p
- */
-function handlePath (p) {
-  if (path.isAbsolute(p)) {
-    return p
-  } else {
-    return path.resolve(cwdPath, p)
-  }
+
+function handlePath(p: string) {
+  return path.isAbsolute(p) ? p : path.resolve(cwdPath, p)
 }
 
 const opt: IGeneratorOption = {}
