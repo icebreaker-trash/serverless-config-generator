@@ -5,4 +5,5 @@ export interface IOutputOption {
 export interface IGeneratorOption {
   input?: string
   output?: string | IOutputOption
+  cwd?: string
 }
