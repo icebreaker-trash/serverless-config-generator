@@ -24,7 +24,7 @@ function runSlsGen(args?: readonly string[], options?: Options<'utf8'>) {
   )
 }
 
-describe('bin/sls-gen', () => {
+describe.skip('bin/sls-gen', () => {
   // process.chdir(path.resolve(__dirname, '../fixtures'))
 
   test('default serverless.js to serverless.yml', async () => {

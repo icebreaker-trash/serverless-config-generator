@@ -38,6 +38,10 @@ export function getOptions(cfg?: IGeneratorOption) {
 export function generateSync(cfg?: IGeneratorOption) {
   try {
     const { input, output } = getOptions(cfg)
+    if (!fs.existsSync(input)) {
+      throw new Error(`${input} is not found!`)
+    }
+
     const jsConfig = yaml.dump(jiti(input))
     fs.writeFileSync(output, jsConfig)
     console.log(`generate serverless.yml success! timestamp:${Date.now()}`)
@@ -51,6 +55,9 @@ export function generateSync(cfg?: IGeneratorOption) {
 export async function generate(cfg?: IGeneratorOption) {
   try {
     const { input, output } = getOptions(cfg)
+    if (!fs.existsSync(input)) {
+      throw new Error(`${input} is not found!`)
+    }
     const jsConfig = yaml.dump(jiti(input))
     await fsp.writeFile(output, jsConfig)
     console.log(`generate serverless.yml success! timestamp:${Date.now()}`)

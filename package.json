@@ -19,7 +19,8 @@
     "ls:pack": "npm pack --dry-run",
     "prepare": "ts-patch install -s",
     "preinstall": "npx only-allow pnpm",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "raw": "node bin/sls-gen"
   },
   "packageManager": "pnpm@8.6.12",
   "repository": {
